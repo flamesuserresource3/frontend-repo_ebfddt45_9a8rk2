@@ -1,50 +1,33 @@
-import { Printer, ArrowRight } from "lucide-react";
+import React from 'react';
+import Spline from '@splinetool/react-spline';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* CMYK tone ribbons */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-40 bg-cyan-500/20 blur-3xl" />
-        <div className="absolute top-20 left-0 right-0 h-40 bg-fuchsia-500/20 blur-3xl" />
-        <div className="absolute top-40 left-0 right-0 h-40 bg-yellow-400/30 blur-3xl" />
-        <div className="absolute top-60 left-0 right-0 h-40 bg-black/20 blur-3xl" />
+    <section id="top" className="relative min-h-screen w-full overflow-hidden">
+      {/* Spline background */}
+      <div className="absolute inset-0">
+        <Spline scene="https://prod.spline.design/zhZFnwyOYLgqlLWk/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        {/* subtle gradient to ensure text readability; allow interaction with Spline */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 via-white/30 to-white/80" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-16 sm:pt-28 sm:pb-24">
-        <div className="flex flex-col items-center text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/70 dark:bg-white/10 px-3 py-1 text-sm backdrop-blur">
-            <Printer className="h-4 w-4 text-neutral-800 dark:text-neutral-100" />
-            Greener prints, cleaner planet
-          </span>
-
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-6xl">
-            Recycle Printer & Toner Cartridges
-            <span className="block bg-gradient-to-r from-cyan-500 via-fuchsia-500 via-50% to-yellow-400 bg-clip-text text-transparent">
-              with Color-Combined Sustainability
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-base sm:text-lg text-neutral-600 dark:text-neutral-300">
-            We collect, sort, and remanufacture cartridges to keep plastic and e‑waste
-            out of landfills. Easy pickups for homes and businesses.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#cta"
-              className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 text-white px-5 py-3 text-sm font-medium shadow hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900/30 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
-            >
-              Schedule a pickup
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#features"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/80 dark:bg-white/10 px-5 py-3 text-sm font-medium shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-900/10"
-            >
-              How it works
-            </a>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 text-center">
+        <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-neutral-900 sm:text-5xl md:text-6xl">
+          Minimal, sustainable cartridge recycling
+        </h1>
+        <p className="mt-5 max-w-xl text-base text-neutral-700 sm:text-lg">
+          We collect and recycle printer cartridges with a clean, efficient service focused on impact and simplicity.
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+          <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-3 text-white transition hover:bg-neutral-800">
+            Schedule a pickup
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
+          <a href="#benefits" className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white px-6 py-3 text-neutral-900 transition hover:bg-neutral-50">
+            Learn more
+          </a>
         </div>
       </div>
     </section>

@@ -1,59 +1,44 @@
-import { Recycle, Shield, Leaf, Truck } from "lucide-react";
+import React from 'react';
+import { Shield, Leaf, Clock } from 'lucide-react';
 
-const features = [
+const items = [
   {
-    title: "Certified Recycling",
-    description:
-      "We comply with industry and environmental standards, ensuring cartridges are responsibly processed.",
-    icon: Recycle,
-    color: "from-cyan-500/20 to-cyan-500/5",
-  },
-  {
-    title: "Data-Safe Disposals",
-    description:
-      "Printer memory is wiped and destroyed where applicable. Your information stays safe.",
     icon: Shield,
-    color: "from-fuchsia-500/20 to-fuchsia-500/5",
+    title: 'Secure & compliant',
+    desc: 'Certified handling and traceable disposal for peace of mind.'
   },
   {
-    title: "Lower Carbon Footprint",
-    description:
-      "Refill and remanufacture to reduce raw plastic and CO₂. Better for the planet and your budget.",
     icon: Leaf,
-    color: "from-yellow-400/30 to-yellow-400/10",
+    title: 'Low-impact logistics',
+    desc: 'Optimized routes and partners to minimize carbon footprint.'
   },
   {
-    title: "Fast Pickup & Logistics",
-    description:
-      "Doorstep pickup for homes and scheduled business collections with tracking.",
-    icon: Truck,
-    color: "from-black/20 to-black/5",
-  },
+    icon: Clock,
+    title: 'Fast turnaround',
+    desc: 'Simple scheduling with quick pickups that respect your time.'
+  }
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why choose us</h2>
-        <p className="mt-3 text-neutral-600 dark:text-neutral-300">
-          A color-driven approach inspired by CMYK. We blend sustainability with reliability.
-        </p>
-      </div>
+    <section id="benefits" className="relative w-full bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">What you get</h2>
+          <p className="mt-4 text-neutral-600">Focused benefits that matter, without the clutter.</p>
+        </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {features.map(({ title, description, icon: Icon, color }) => (
-          <div
-            key={title}
-            className={`group rounded-2xl border border-neutral-200 dark:border-white/10 bg-gradient-to-b ${color} p-6 transition shadow-sm hover:shadow-md`}
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/70 dark:bg-white/10 shadow">
-              <Icon className="h-6 w-6" />
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {items.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="group rounded-2xl border border-neutral-200 bg-white p-8 transition hover:shadow-lg">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-neutral-200 bg-white">
+                <Icon className="h-5 w-5 text-neutral-900" />
+              </div>
+              <h3 className="mt-5 text-lg font-medium text-neutral-900">{title}</h3>
+              <p className="mt-2 text-neutral-600">{desc}</p>
             </div>
-            <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
